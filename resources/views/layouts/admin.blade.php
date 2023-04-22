@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title')</title>
+    <title style=" color: whitesmoke;font-size:12px;">CORRES</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -15,9 +15,12 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/back.css') }}" rel="stylesheet">
 </head>
-<body class="sidebar-mini" style="height: auto;">
-    <div class="wrapper" id="app">
+
+<!-- style="background-image: url('css/img/back.jpg');" -->
+<body class="sidebar-mini" >
+    <div class="wrapper" >
         <!-- Navbar -->
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
             <!-- Left navbar links -->
@@ -44,11 +47,11 @@
         <!-- /.navbar -->
 
         <!-- Main Sidebar Container -->
-        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <aside class="main-sidebar" >
             <!-- Sidebar -->
             <a  class="brand-link text-center" style="text-decoration:none; color: orange">
             
-                <h3><span class="brand-text font-weight-light" style=" color: orange">Hospital</span></h3>
+                <h3><span class="brand-text font-weight-light" style=" color: orange">CORRES</span></h3>
             </a>
             <div class="sidebar">
                 <!-- Sidebar user panel (optional) -->
@@ -73,7 +76,7 @@
                         </li>   
                         
                         @endif
-<!--                         <li class="nav-item has-treeview">
+                            <!--   <li class="nav-item has-treeview">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-file-text"></i>
                                 <p>
@@ -146,31 +149,12 @@
                             </a>
                        </li>
 
-                       <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-medkit"></i>
-                                <p>
-                                    Appointments
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
+                        <!--  <li class="nav-item">
+                            <a  class="nav-link" href="{{ route('radiography.appointment') }}">
+                                <i class="nav-icon fas fa-heartbeat"></i>
+                                <p>Appointments</p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a  class="nav-link" href="{{ route('radiography.appointment') }}">
-                                        <i class="nav-icon fas fa-heartbeat"></i>
-                                        <p>Radiograph</p>
-                                    </a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a  class="nav-link" href="{{ route('doctor.appointment') }}">
-                                        <i class="nav-icon 	fas fa-user-md"></i>
-                                        <p>Doctor</p>
-                                    </a>
-                                </li>   
-                            </ul>
-                        </li>
-                            <!-- Secretary Section-->
+                        </li> -->
                         
                         @endif
 
@@ -203,7 +187,7 @@
         </aside>
 
         <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper" style="min-height: 399px;">
+        <div class="content-wrapper" style="min-height: 350px;"  >
             <!-- Content Header (Page header) -->
             <div class="content-header">
                 <div class="container-fluid">
@@ -231,11 +215,11 @@
         </div>
         <!-- /.content-wrapper -->
 
-    <!-- Main Footer -->
+        <!-- Main Footer -->
       <footer class="main-footer">
         <!-- Default to the left -->
         <div class="text-center">
-        <strong>Copyright &copy; <?php echo date('Y') ?> <a>Hospital</a>.</strong> All rights reserved.
+            <strong>Copyright &copy; <?php echo date('Y') ?> <a>COMPUTERIZED RADIOLOGY REQUISITION SYSTEM</a>.</strong> All rights reserved.
         </div>
 
       </footer>

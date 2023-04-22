@@ -37,13 +37,13 @@ Route::resource('radiographer', RadiographerController::class);
 Route::resource('users', UserController::class);
 Route::resource('patients', PatientController::class);
 
-Route::get('/set-appointment',[ PatientController::class,'setAppointment'])->name('request');
-Route::get('/secretary-request',[PatientController::class,'secRequest'])->name('secretary.request');
-Route::get('/radiographer-request',[PatientController::class,'radRequest'])->name('radiographer.requests');
-Route::get('/doctor-examined',[PatientController::class,'docExamined'])->name('doctor.examined');
+Route::get('/set appointment',[ PatientController::class,'setAppointment'])->name('request');
+Route::get('/secretary request',[PatientController::class,'secRequest'])->name('secretary.request');
+Route::get('/radiographer request',[PatientController::class,'radRequest'])->name('radiographer.requests');
+Route::get('/doctor examined',[PatientController::class,'docExamined'])->name('doctor.examined');
 
-Route::get('/radiography-appointment',[PatientController::class,'radAppointment'])->name('radiography.appointment');
-Route::get('/doctor-appointment',[PatientController::class,'docAppointment'])->name('doctor.appointment');
+Route::get('/radiography appointment',[PatientController::class,'radAppointment'])->name('radiography.appointment');
+Route::get('/doctor appointment',[PatientController::class,'docAppointment'])->name('doctor.appointment');
 
 
 Route::get('/examined',[PatientController::class,'examined'])->name('examined');

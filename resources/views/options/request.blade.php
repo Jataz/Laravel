@@ -22,8 +22,11 @@ Request
                     <th>Name</th>
                     <th>Age</th>
                     <th>Examination</th>
+                    <th>Priority</th>
+                    @if (auth()->user()->role_id == 3)
+                    <th>Date Requested</th>
+                    @endif
                     <th>Doctor</th>
-                    <th>Appointment</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -31,11 +34,14 @@ Request
                 @foreach ($patients as $patient)
                 <tr>
                     <td>{{ ++$i }}</td>
-                    <td>{{ $patient->name }}</td>
+                    <td>{{ $patient->patient_name }}</td>
                     <td>{{ $patient->age }}</td>
                     <td>{{ $patient->examination }}</td>
+                    <td>{{ $patient->priority }}</td>
+                    @if (auth()->user()->role_id == 3)
+                    <td>{{ $patient->updated_at}}</td>
+                    @endif
                     <td>{{ $patient->name }}</td>
-                    <th>{{ $patient->appointment_rad }}</th>
                     <td>
                         <a href="{{ route('patients.show',$patient->id) }}" class="btn btn-sm btn-success" style="padding:0px 2px; color:#fff;" >View</a>
                         
@@ -43,10 +49,14 @@ Request
                             @csrf
                             @method('PUT')
                             @if (auth()->user()->role_id == 4)
-<!--                             <button type="submit" class="btn btn-sm btn-primary" style="padding:0px 2px; color:#fff;" >Request</button>   --> 
-                                <a href="{{ route('doctor.edit',$patient->id) }}" class="btn btn-sm btn-primary" style="padding:0px 2px; color:#fff;" >Book Appointment</a>
+                             <button type="submit" class="btn btn-sm btn-primary" style="padding:0px 2px; color:#fff;" >Request</button>
                             @endif
                         </form>
+
+                        
+<!--                         @if (auth()->user()->role_id == 4)
+                            <a href="{{ route('doctor.edit',$patient->id) }}" class="btn btn-sm btn-primary" style="padding:0px 2px; color:#fff;" >Make Appointment</a>
+                        @endif -->
 
                         @if (auth()->user()->role_id == 3)
                             <a href="{{ route('radiographer.edit', $patient->id) }}" class="btn btn-sm btn-primary"  style="padding:0px 2px; color:#fff;" >Examine</a>

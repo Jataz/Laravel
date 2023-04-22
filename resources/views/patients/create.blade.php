@@ -21,9 +21,9 @@ Patient
                         <div class="row">
                             <div class="col-lg-6">
                                 <label for="">Full Name</label>
-                                <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
-                                    value="{{ old('name') }}" placeholder="Enter Name & Surname">
-                                @error('name')
+                                <input type="text" name="patient_name" class="form-control @error('patient_name') is-invalid @enderror"
+                                    value="{{ old('patient_name') }}" placeholder="Enter Name & Surname">
+                                @error('patient_name')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -85,7 +85,7 @@ Patient
                             <div class="col-lg-6">
                                 <label for="">Medical Aid No</label>
                                 <input type="text" name="medical_aid_no"
-                                    class="form-control @error('medical_aid_no') is-invalid @enderror" placeholder="Medical aid number"
+                                    class="form-control @error('medical_aid_no') is-invalid @enderror" placeholder="Medical Aid Number"
                                     value="{{ old('medical_aid_no') }}">
                                 @error('medical_aid_no')
                                 <span class="invalid-feedback" role="alert">
@@ -110,15 +110,34 @@ Patient
                                 @enderror
                             </div>
 
-                            <div class="col-lg-6">
+                            <div class="col-lg-3">
                                 <label for="">Examination</label>
                                 <select class="custom-select @error('examination') is-invalid @enderror" name="examination">
                                     <option value="">select</option>                                    
-                                    <option value="Ultrasound"  @if (old('examination') == "Ultrasound") {{ 'selected' }} @endif>Ultrasound</option>
+                                    <option value="General Radiology"  @if (old('examination') == "General Radiology") {{ 'selected' }} @endif>General Radiology</option>
                                     <option value="Screening"  @if (old('examination') == "Screening") {{ 'selected' }} @endif>Screening</option>
+                                    <option value="Ultrasound"  @if (old('examination') == "Ultrasound") {{ 'selected' }} @endif>Ultrasound</option>
+                                    <option value="Panorex"  @if (old('examination') == "Panorex") {{ 'selected' }} @endif>Panorex</option>
+                                    <option value="C.T. Scanning"  @if (old('examination') == "C.T. Scanning") {{ 'selected' }} @endif>C.T. Scanning</option>
+                                    <option value="Doppler"  @if (old('examination') == "Doppler") {{ 'selected' }} @endif>Doppler</option>
+                                    <option value="C.T. Angiography"  @if (old('examination') == "C.T. Angiography") {{ 'selected' }} @endif>C.T. Angiography</option>
                            
                                 </select>
                                 @error('examination')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                            <div class="col-lg-3">
+                                <label for="">Priority</label>
+                                <select class="custom-select @error('priority') is-invalid @enderror" name="priority">
+                                    <option value="">select</option>                                    
+                                    <option value="High"  @if (old('priority') == "High") {{ 'selected' }} @endif>High</option>
+                                    <option value="Low"  @if (old('priority') == "Low") {{ 'selected' }} @endif>Low</option>
+                           
+                                </select>
+                                @error('priority')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>

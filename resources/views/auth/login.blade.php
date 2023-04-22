@@ -4,11 +4,11 @@
 
 <div class="login-box">
   <div class="login-logo">
-    <h3>LOGIN</h3>
+    
   </div>
   <!-- /.login-logo -->
   <div class="card">
-  <div class="card-body login-card-body">
+  <div class="card-body login-card-body" >
         <p class="login-box-msg"></p>
 
         <form action="{{ route('login') }}" method="post">
@@ -42,10 +42,7 @@
             <div class="row" style="margin-left: 10px;">
                 <div class="col-8">
                     <div class="icheck-primary">
-                        <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                        <label for="remember">
-                            Remember Me
-                        </label>
+ 
                     </div>
                 </div>
   

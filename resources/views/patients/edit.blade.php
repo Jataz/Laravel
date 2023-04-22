@@ -23,9 +23,9 @@ Request
                         <div class="row">
                             <div class="col-mb-6">
                                 <label for="">Patient Name</label>
-                                <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
-                                    value="{{ $patient->name }}">
-                                @error('name')
+                                <input type="text" name="patient_name" class="form-control @error('patient_name') is-invalid @enderror"
+                                    value="{{ $patient->patient_name }}">
+                                @error('patient_name')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>

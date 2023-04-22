@@ -1,0 +1,33 @@
+
+
+.wrapper {
+    background-image: url("img/1.jpg");
+    background-size: cover; /* or "contain" */
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.content-wrapper{
+    background-image: url("img/1.jpg");
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    z-index: 99999;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+/* .main-footer{
+    background-image: url("img/1.jpg");
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center center;
+} */
+
+.nav-item p{
+    color: whitesmoke;
+}
+

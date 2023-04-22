@@ -20,7 +20,7 @@ Patients
     @endif
     </div>
     <!-- /.card-header -->
-    <div class="card-body">
+    <div class="card-body" >
         <table  class="table table-striped">
             <thead>
                 <tr>
@@ -29,6 +29,7 @@ Patients
                     <th>Age</th>
                     <th>Medical Aid</th>
                     <th>Examination</th>
+                    <th>Priority</th>
                     @if (auth()->user()->role_id == 1)
                     <th>Date</th>
                     @endif
@@ -42,10 +43,11 @@ Patients
                 @foreach ($patients as $patient)
                 <tr>
                     <td>{{ ++$i }}</td>
-                    <td>{{ $patient->name }}</td>
+                    <td>{{ $patient->patient_name }}</td>
                     <td>{{ $patient->age }}</td>
                     <td>{{ $patient->medical_aid }}</td>
                     <td>{{ $patient->examination }}</td>
+                    <td>{{ $patient->priority }}</td>
                     @if (auth()->user()->role_id == 1)
                     <td>{{ $patient->created_at }}</td>
                     @endif

@@ -18,7 +18,7 @@ Details
                 <div class="row g-2">
                     <div class="col">
                         <strong>Name:</strong>
-                        {{ $patient->name }}
+                        {{ $patient->patient_name }}
                     </div>
                 </div>
                 <hr>

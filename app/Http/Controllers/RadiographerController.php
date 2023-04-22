@@ -62,7 +62,7 @@ class RadiographerController extends Controller
     {
 
         request()->validate([
-            'name' => 'required',
+            'patient_name' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
         ]);
 

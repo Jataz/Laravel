@@ -20,6 +20,7 @@ class PatientController extends Controller
         $patients = DB::table('patients')
                     ->where('patients.doctor_id','=',auth()->user()->id)
                     ->get();
+
         return view('patients.index', compact('patients'))
             ->with('i');
     }
@@ -40,7 +41,7 @@ class PatientController extends Controller
     {
 
         request()->validate([
-            'name'=> 'required',
+            'patient_name'=> 'required',
             'phone_number'=> 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10|max:10',
             'age'=> 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:0',
             'gender'=> 'required',
@@ -50,6 +51,7 @@ class PatientController extends Controller
             'examination'=> 'required',
             'examination_requested'=> 'required',
             'history'=>'required',
+            'priority'=>'required'
         ]);
 
         $req = $request -> all();
@@ -115,8 +117,9 @@ class PatientController extends Controller
         $patients = DB::table('patients')
                 ->leftjoin('users','patients.doctor_id','=','users.id')
                 ->where('patients.patient_status','=', 2)
-                ->whereNotNull('appointment_rad')
-                ->get(['patients.id','patients.name','patients.id','patients.age','patients.examination','patients.created_at',
+                ->orderBy('patients.priority', 'asc')
+                ->orderBy('patients.updated_at', 'asc')
+                ->get(['patients.id','patients.patient_name','patients.id','patients.age','patients.priority','patients.examination','patients.updated_at',
                 'users.name','patients.appointment_rad']);
         return view('options.request', compact('patients'))
             ->with('i');
@@ -128,7 +131,8 @@ class PatientController extends Controller
         $patients = DB::table('patients')
                 ->leftjoin('users','patients.doctor_id','=','users.id')
                 ->where('patients.patient_status','=', 1)
-                ->get(['patients.id','patients.name','patients.id','patients.age','patients.examination','patients.created_at',
+                ->orderBy('priority','asc')
+                ->get(['patients.id','patients.patient_name','patients.id','patients.age','patients.priority','patients.examination','patients.created_at',
                 'users.name']);
 
         return view('options.request', compact('patients'))
@@ -141,7 +145,8 @@ class PatientController extends Controller
         $patients = DB::table('patients')
                 ->leftjoin('users','patients.radiographer_id','=','users.id')
                 ->where('patients.patient_status','=', 3)
-                ->get(['patients.id','patients.name','patients.id','patients.age','patients.examination','patients.created_at',
+                ->orderBy('patients.updated_at', 'asc')
+                ->get(['patients.id','patients.patient_name','patients.id','patients.age','patients.examination','patients.updated_at',
                 'users.name']);
 
         return view('options.examined', compact('patients'))
@@ -164,7 +169,7 @@ class PatientController extends Controller
                 ->leftjoin('users','patients.radiographer_id','=','users.id')
                 ->where('patients.patient_status','=', 3)
                 ->where('patients.doctor_id','=',auth()->user()->id)
-                ->get(['patients.id','patients.name','patients.id','patients.age','patients.examination','patients.created_at',
+                ->get(['patients.id','patients.patient_name','patients.id','patients.age','patients.examination','patients.updated_at',
                 'users.name']);
 
         return view('options.examined', compact('patients'))
@@ -175,9 +180,7 @@ class PatientController extends Controller
     {
         $patients = DB::table('patients')
                 ->where('patients.patient_status','=', 2)
-                ->whereNotNull('appointment_rad')
                 ->get();
-
         return view('patients.index', compact('patients'))
             ->with('i');
     }

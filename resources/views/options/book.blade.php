@@ -27,9 +27,8 @@ Request
                         <div class="row">
                             <div class="col">
                                 <label for="">Patient Name</label>
-                                <input type="text" name="name" 
-                                    value="{{ $patient->name }}" class="form-control">
-                                @error('name')
+                                <input type="text" name="patient_name" value="{{ $patient->patient_name}}" class="form-control">
+                                @error('patient_name')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -54,7 +53,7 @@ Request
                         
                         <div class="card-footer">
                             <button type="submit" class="btn btn-sm btn-primary ">Submit</button>
-                            <a type="button" class="btn btn-danger btn-sm" href="{{ url()->previous() }}">{{ __('Cancel') }}</a>
+                            <a type="button" class="btn btn-danger btn-sm" href="{{ route('secretary.request')  }}">{{ __('Cancel') }}</a>
                         </div>
                     </form>
                 </div>

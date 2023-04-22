@@ -85,7 +85,7 @@ class DoctorController extends Controller
     {
 
         request()->validate([
-            'name' => 'required',
+            'patient_name' => 'required',
             'appointment_rad' => 'required',
         ]);
 
